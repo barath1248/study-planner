@@ -1,0 +1,48 @@
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.delete-button {
+  padding: 7px 10px;
+  color: #b91c1c;
+  background: #fef2f2;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background: #fee2e2;
+}
+.task-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.task-filters button {
+  padding: 8px 14px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.task-search {
+  margin: 20px 0 12px;
+}
+
+.task-search input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.task-search input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px #4f46e51a;
+}

@@ -1,9 +1,38 @@
-import React from 'react'
 
-const SubjectsDetails = () => {
+import { useParams, Link } from 'react-router-dom'
+import useLocalStorage from '../hooks/useLocalStorage'
+import '../styles/SubjectsDetails.css'
+
+function SubjectsDetails() {
+  const { id } = useParams()
+
+  const [subjects] = useLocalStorage('study-subjects', [
+    { id: 1, name: 'Core Java', description: 'Java fundamentals' },
+    { id: 2, name: 'React', description: 'Frontend development' },
+    { id: 3, name: 'SQL', description: 'Database queries' },
+  ])
+
+  const subject = subjects.find(
+    (item) => item.id === Number(id)
+  )
+
+  if (!subject) {
+    return (
+      <div className="subject-details">
+        <h1>Subject not found</h1>
+        <Link to="/subjects">Back to Subjects</Link>
+      </div>
+    )
+  }
+
   return (
-    <div>
-      
+    <div className="subject-details">
+      <Link to="/subjects">← Back to Subjects</Link>
+
+      <h1>{subject.name}</h1>
+      <p>{subject.description || 'No description provided.'}</p>
+
+      <p>Subject ID: {subject.id}</p>
     </div>
   )
 }
