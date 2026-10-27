@@ -1,0 +1,145 @@
+.sidebar-shell {
+  flex-shrink: 0;
+  width: var(--sidebar-width, 252px);
+  height: 100%;
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.sidebar {
+  height: 100%;
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px 16px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  box-shadow: 0 4px 12px rgb(79 70 229 / 28%);
+}
+
+.sidebar-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sidebar-brand-text strong {
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+}
+
+.sidebar-brand-text span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.sidebar h3 {
+  margin: 8px 10px 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.sidebar-links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+}
+
+.sidebar-link-icon {
+  width: 1.25rem;
+  text-align: center;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.status-online,
+.status-offline {
+  margin-top: 0;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .sidebar-shell {
+    width: 72px;
+  }
+
+  .sidebar-brand-text,
+  .sidebar h3,
+  .sidebar-links a span:not(.sidebar-link-icon) {
+    display: none;
+  }
+
+  .sidebar-links a {
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .sidebar-brand {
+    justify-content: center;
+    padding-inline: 8px;
+  }
+
+  .status-online,
+  .status-offline {
+    font-size: 0;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .status-online::before,
+  .status-offline::before {
+    font-size: 13px;
+  }
+
+  .status-online::before {
+    content: 'Online';
+  }
+
+  .status-offline::before {
+    content: 'Off';
+  }
+}

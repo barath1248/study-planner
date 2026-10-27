@@ -1,0 +1,108 @@
+.daily-focus {
+  margin: 16px 0 4px;
+  padding: 18px 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent) 8%, var(--surface)),
+    var(--surface)
+  );
+  box-shadow: var(--shadow-sm);
+}
+
+.daily-focus-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.daily-focus-eyebrow {
+  margin: 0 0 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.daily-focus h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.daily-focus-clear {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.daily-focus-clear:hover {
+  background: var(--surface-muted);
+  color: var(--danger-fg);
+}
+
+.daily-focus-active {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent-on-soft);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.daily-focus-hint {
+  margin: 0 0 14px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.daily-focus-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.daily-focus-form input {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: inherit;
+  font-size: 14px;
+}
+
+.daily-focus-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.daily-focus-form button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.daily-focus-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.daily-focus-form button:not(:disabled):hover {
+  background: var(--accent-hover);
+}

@@ -1,25 +1,56 @@
 import { NavLink } from 'react-router-dom'
 import useOnline from '../hooks/useOnline'
-const Sidebar = () => {
-    const isOnline = useOnline();
-    return (
-        <div>
-            <aside className="sidebar">
-                <h3>menu</h3>
+import '../styles/Sidebar.css'
 
-                <nav className="sidebar-links">
-                    <NavLink to="/">Dashboard</NavLink>
-                    <NavLink to="/tasks">Tasks</NavLink>
-                    <NavLink to="/schedule">Schedule</NavLink>
-                    <NavLink to="/subjects">Subjects</NavLink>
-                    <NavLink to="/settings">Settings</NavLink>
-                </nav>
-                <div className={isOnline ? 'status-online' : 'status-offline'}>
-                    Status: {isOnline ? 'Online' : 'Offline'}
-                </div>
-            </aside>
+const NAV_ITEMS = [
+  { to: '/', label: 'Dashboard', icon: '◫' },
+  { to: '/tasks', label: 'Tasks', icon: '☑' },
+  { to: '/schedule', label: 'Schedule', icon: '◷' },
+  { to: '/subjects', label: 'Skills', icon: '◆' },
+  { to: '/settings', label: 'Settings', icon: '⚙' },
+]
+
+const Sidebar = () => {
+  const isOnline = useOnline()
+
+  return (
+    <div className="sidebar-shell">
+      <aside className="sidebar">
+        <div className="sidebar-brand">
+          <div className="sidebar-brand-mark" aria-hidden="true">
+            📚
+          </div>
+          <div className="sidebar-brand-text">
+            <strong>Study Planner</strong>
+            <span>Stay on track</span>
+          </div>
         </div>
-    )
+
+        <h3>Menu</h3>
+
+        <nav className="sidebar-links" aria-label="Main">
+          {NAV_ITEMS.map(({ to, label, icon }) => (
+            <NavLink key={to} to={to} end={to === '/'}>
+              <span className="sidebar-link-icon" aria-hidden="true">
+                {icon}
+              </span>
+              <span>{label}</span>
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className="sidebar-footer">
+          <div
+            className={isOnline ? 'status-online' : 'status-offline'}
+            role="status"
+          >
+            <span className="status-dot" aria-hidden="true" />
+            {isOnline ? 'Online' : 'Offline'}
+          </div>
+        </div>
+      </aside>
+    </div>
+  )
 }
 
 export default Sidebar

@@ -1,6 +1,7 @@
 
 import { useParams, Link } from 'react-router-dom'
 import useLocalStorage from '../hooks/useLocalStorage'
+import SubjectIcon from '../components/SubjectIcon'
 import '../styles/SubjectsDetails.css'
 
 function SubjectsDetails() {
@@ -12,9 +13,7 @@ function SubjectsDetails() {
     { id: 3, name: 'SQL', description: 'Database queries' },
   ])
 
-  const subject = subjects.find(
-    (item) => item.id === Number(id)
-  )
+  const subject = subjects.find((item) => item.id === Number(id))
 
   if (!subject) {
     return (
@@ -27,12 +26,18 @@ function SubjectsDetails() {
 
   return (
     <div className="subject-details">
-      <Link to="/subjects">← Back to Subjects</Link>
+      <Link className="back-link" to="/subjects">
+        ← Back to Subjects
+      </Link>
 
-      <h1>{subject.name}</h1>
-      <p>{subject.description || 'No description provided.'}</p>
-
-      <p>Subject ID: {subject.id}</p>
+      <div className="subject-details-hero">
+        <SubjectIcon name={subject.name} size="lg" />
+        <div>
+          <p className="page-eyebrow">Skill</p>
+          <h1>{subject.name}</h1>
+          <p>{subject.description || 'No description provided.'}</p>
+        </div>
+      </div>
     </div>
   )
 }

@@ -1,0 +1,49 @@
+.subject-icon {
+  --subject-accent: #4f46e5;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--subject-accent) 14%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--subject-accent) 28%, var(--border));
+  box-shadow: var(--shadow-sm);
+}
+
+.subject-icon--sm {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.subject-icon--md {
+  width: 52px;
+  height: 52px;
+}
+
+.subject-icon--lg {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+}
+
+.subject-icon__img {
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
+}
+
+.subject-icon__initials {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--subject-accent);
+}
+
+.subject-icon--lg .subject-icon__initials {
+  font-size: 1rem;
+}
+
+html[data-theme='dark'] .subject-icon {
+  background: color-mix(in srgb, var(--subject-accent) 24%, var(--surface-muted));
+  border-color: color-mix(in srgb, var(--subject-accent) 40%, var(--border));
+}

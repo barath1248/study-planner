@@ -9,9 +9,10 @@
   gap: 12px;
   margin: 24px 0;
   padding: 20px;
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .schedule-form input,
@@ -19,15 +20,22 @@
 .schedule-form button,
 .schedule-filter select {
   padding: 10px 12px;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--input-border);
   border-radius: 8px;
+  background: var(--input-bg);
+  color: inherit;
 }
 
 .schedule-form button {
-  background: #4f46e5;
+  background: var(--accent);
   color: white;
   border: none;
   cursor: pointer;
+  font-weight: 600;
+}
+
+.schedule-form button:hover {
+  background: var(--accent-hover);
 }
 
 .schedule-filter {
@@ -45,9 +53,10 @@
   align-items: center;
   gap: 16px;
   padding: 20px;
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .session-card h3 {
@@ -55,16 +64,21 @@
 }
 
 .session-card p {
-  color: #6b7280;
+  color: var(--text-muted);
 }
 
 .session-card button {
   padding: 8px 12px;
-  background: #fef2f2;
-  color: #b91c1c;
+  background: var(--danger-bg);
+  color: var(--danger-fg);
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: 500;
+}
+
+.session-card button:hover {
+  background: var(--danger-bg-hover);
 }
 
 @media (max-width: 600px) {

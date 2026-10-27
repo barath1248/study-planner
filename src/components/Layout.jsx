@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
@@ -9,6 +9,10 @@ function Layout() {
   const [nameInput, setNameInput] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [theme, setTheme] = useLocalStorage('study-theme', 'light')
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+  }, [theme])
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -50,7 +54,7 @@ function Layout() {
         <Sidebar />
 
         <main className="page-content">
-          <Outlet context={{ theme, setTheme }} />
+          <Outlet context={{ theme, setTheme, username }} />
         </main>
       </div>
     </div>
